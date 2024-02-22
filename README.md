@@ -1,2 +1,2 @@
-# mobile_i_jhonathan_e_pedro
+# mobile_i_jhonathan_dourado
 Repositório para as aulas de programação 
