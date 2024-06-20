@@ -1,2 +1,2 @@
-# mobile_i_jhonathan_dourado
-Repositório para as aulas de programação 
+# mobile_i_pedro_passos
+aulas de mobile com o professor João Silles

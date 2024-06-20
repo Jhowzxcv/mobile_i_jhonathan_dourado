@@ -1,11 +1,11 @@
-var txt = "hello amigos";
+let txt = "Hello amigos";
 
 console.log(txt.length);
 
 console.log(txt.slice(6,12));
 
-console.log(txt.replace("hello","olá"));
+console.log(txt.replace("Hello", "Olá"));
 
-let newtxt = txt.replace("hello","olá");
+let newTxt = txt.replace("Hello", "Olá");
 
-console.warn(newtxt.toUpperCase())
+console.warn(newTxt.toUpperCase());
