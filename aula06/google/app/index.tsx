@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, Button, Alert, Pressable } from 'react-native'
 
 import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 export default function HomeScreen() {
@@ -38,7 +39,8 @@ export default function HomeScreen() {
             Gmail
           </Text>
         </Pressable>
-        <Pressable style={styles.btn_header}>
+        <Pressable style={styles.btn_header}
+        onPress={() => Navigation.navigate('email')}>
           <Text style={{ fontSize: 14, }}>
             Imagens
           </Text>
@@ -136,6 +138,7 @@ const styles = StyleSheet.create({
     position: "absolute",  
     right: 0,
     top: 0,
+    backgroundColor: "white",
   }, 
 
   btn_header: {
