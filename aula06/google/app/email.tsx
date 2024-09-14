@@ -9,10 +9,10 @@ export default function HomeScreen() {
             <ThemedView style={styles.container}>
                 <ThemedView style={styles.block}>
                     <Image source={require('../assets/images/G.svg')} style={styles.image} />
-                    <Text style={{ fontSize: 38, fontWeight: 400, marginTop: 30 }}>
+                    <Text style={styles.loginText}>
                         Fazer login
                     </Text>
-                    <Text style={{ fontSize: 16, marginTop: 20 }}>
+                    <Text style={styles.googleText}>
                         Use sua Conta do Google
                     </Text>
                 </ThemedView>
@@ -22,52 +22,52 @@ export default function HomeScreen() {
                         placeholder="E-mail ou telefone"
                         keyboardType="text"
                     />
-                    <Pressable style={{ marginTop: 10 }}>
-                        <Text style={{ color: "blue", fontSize: 14 }}>
+                    <Pressable style={styles.forgotEmail}>
+                        <Text style={styles.linkText}>
                             Esqueceu seu e-mail?
                         </Text>
                     </Pressable>
-                    <ThemedView style={{ backgroundColor: "white", marginBottom: 40 }}>
-                        <Text style={{ fontSize: 14, width: 400, marginTop: 40 }}>
+                    <ThemedView style={styles.infoContainer}>
+                        <Text style={styles.infoText}>
                             Não está no seu computador? Use uma janela de navegação privada para fazer login.
                         </Text>
                         <Pressable>
-                            <Text style={{ color: "blue", fontSize: 14, width: 400 }}>
+                            <Text style={styles.linkText}>
                                 Saiba mais sobre como usar o Modo visitante
                             </Text>
                         </Pressable>
                     </ThemedView>
-                    <ThemedView style={{ display: "flex", flexDirection: "row", backgroundColor: "white", justifyContent: "flex-end", alignItems: 'center' }}>
+                    <ThemedView style={styles.actionsContainer}>
                         <Pressable>
-                            <Text style={{ color: "blue", margin: 12, fontSize: 14 }}>
+                            <Text style={styles.linkText}>
                                 Criar conta
                             </Text>
                         </Pressable>
                         <Pressable style={styles.btn}>
-                            <Text style={{ color: "white", fontSize: 14, fontWeight: "600", textAlign: "center" }}>
+                            <Text style={styles.btnText}>
                                 Próxima
                             </Text>
                         </Pressable>
                     </ThemedView>
                 </ThemedView>
             </ThemedView>
-            <ThemedView style={{ flexDirection: 'row', justifyContent: "space-between", width: "70%", backgroundColor: "lightgray" }}>
-                <Text style={{ backgroundColor: "lightgray", fontSize: 12, margin: 12 }}>
+            <ThemedView style={styles.footer}>
+                <Text style={styles.footerText}>
                     Português (Brasil)
                 </Text>
-                <ThemedView style={{ backgroundColor: "lightgray", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 10, margin: 15, }}>
+                <ThemedView style={styles.footerLinks}>
                     <Pressable>
-                        <Text style={{ fontSize: 12, margin: 12}}>
+                        <Text style={styles.footerLinkText}>
                             Ajuda
                         </Text>
                     </Pressable>
                     <Pressable>
-                        <Text style={{ fontSize: 12, margin:  12}}>
+                        <Text style={styles.footerLinkText}>
                             Privacidade
                         </Text>
                     </Pressable>
                     <Pressable>
-                        <Text style={{ fontSize: 12, margin: 12 }}>
+                        <Text style={styles.footerLinkText}>
                             Termos
                         </Text>
                     </Pressable>
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 32,
         justifyContent: "space-between",
-
     },
 
     block: {
@@ -106,6 +105,17 @@ const styles = StyleSheet.create({
         height: 45,
     },
 
+    loginText: {
+        fontSize: 38,
+        fontWeight: "400",
+        marginTop: 30,
+    },
+
+    googleText: {
+        fontSize: 16,
+        marginTop: 20,
+    },
+
     input: {
         width: 400,
         height: 60,
@@ -116,7 +126,35 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "gray",
         borderRadius: 4,
-        color: "darkGray"
+        color: "darkGray",
+    },
+
+    forgotEmail: {
+        marginTop: 10,
+    },
+
+    linkText: {
+        color: "blue",
+        fontSize: 14,
+    },
+
+    infoContainer: {
+        backgroundColor: "white",
+        marginBottom: 40,
+    },
+
+    infoText: {
+        fontSize: 14,
+        width: 400,
+        marginTop: 40,
+    },
+
+    actionsContainer: {
+        display: "flex",
+        flexDirection: "row",
+        backgroundColor: "white",
+        justifyContent: "flex-end",
+        alignItems: 'center',
     },
 
     btn: {
@@ -126,7 +164,40 @@ const styles = StyleSheet.create({
         height: "80%",
         backgroundColor: "#0b57d0",
         borderRadius: 100,
+        justifyContent: "center",
+    },
+
+    btnText: {
+        color: "white",
+        fontSize: 14,
+        fontWeight: "600",
         textAlign: "center",
-        justifyContent: "center"
+    },
+
+    footer: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        width: "70%",
+        backgroundColor: "lightgray",
+    },
+
+    footerText: {
+        backgroundColor: "lightgray",
+        fontSize: 12,
+        margin: 12,
+    },
+
+    footerLinks: {
+        backgroundColor: "lightgray",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 10,
+        margin: 15,
+    },
+
+    footerLinkText: {
+        fontSize: 12,
+        margin: 12,
     },
 });
