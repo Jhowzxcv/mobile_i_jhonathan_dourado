@@ -5,7 +5,10 @@ import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
+
 export default function HomeScreen() {
+  const navigation = useNavigation();
+  
   return (
     <ThemedView style={styles.body}>
       <Image source={require('../assets/images/google_logo.svg')} style={styles.image} />
@@ -15,7 +18,7 @@ export default function HomeScreen() {
           style={styles.input}
           placeholder="Pesquise aqui..."
           keyboardType="text"
-        />
+          />
         <Image source={require('../assets/images/keyb3.png')} style={styles.image2} />
         <Image source={require('../assets/images/google-microphone-icon.svg')} style={styles.image2} />
         <Image source={require('../assets/images/Google_Lens_Icon.svg')} style={styles.image2} />
@@ -39,8 +42,7 @@ export default function HomeScreen() {
             Gmail
           </Text>
         </Pressable>
-        <Pressable style={styles.btn_header}
-        onPress={() => Navigation.navigate('email')}>
+        <Pressable style={styles.btn_header}>
           <Text style={{ fontSize: 14, }}>
             Imagens
           </Text>
@@ -48,7 +50,8 @@ export default function HomeScreen() {
         <Pressable style={styles.btn_header}>
         <Image source={require('../assets/images/apps_google.png')}/>
         </Pressable>
-          <Pressable style={styles.btn_header_log}>
+          <Pressable style={styles.btn_header_log}
+          onPress={() => {navigation.navigate('email')}}>
             <Text style={{color: "white", fontSize: 14,}}>
               Fazer login
             </Text>
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',  // Ajusta a imagem proporcionalmente
     marginLeft: 10,
   },
-
+  
   image2: {
     width: 20,
     height: 20,
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',  // Ajusta a imagem proporcionalmente
     marginRight: 10,
   },
-
+  
   bar: {
     justifyContent: "space-between",
     flexDirection: "row",

@@ -1,52 +1,44 @@
-import { Image, StyleSheet, Text, Button, Alert, Pressable } from 'react-native';
+import { Image, StyleSheet, Text, Button, Alert, Pressable, } from 'react-native';
+import { CheckBox, } from 'react-native-elements';
 import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function HomeScreen() {
     const navigation = useNavigation();
+    const [isSelected, setSelected] = useState(false)
+    const [password, setPassword] = useState('');     
     return (
         <ThemedView style={styles.body}>
             <ThemedView style={styles.container}>
                 <ThemedView style={styles.block}>
                     <Image source={require('../assets/images/G.svg')} style={styles.image} />
                     <Text style={styles.loginText}>
-                        Fazer login
-                    </Text>
-                    <Text style={styles.googleText}>
-                        Use sua Conta do Google
+                        Olá!
                     </Text>
                 </ThemedView>
                 <ThemedView style={styles.block}>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="E-mail ou telefone"
-                        keyboardType="text"
-                    />
-                    <Pressable style={styles.forgotEmail}>
-                        <Text style={styles.linkText}>
-                            Esqueceu seu e-mail?
-                        </Text>
-                    </Pressable>
-                    <ThemedView style={styles.infoContainer}>
-                        <Text style={styles.infoText}>
-                            Não está no seu computador? Use uma janela de navegação privada para fazer login.
-                        </Text>
-                        <Pressable>
-                            <Text style={styles.linkText}>
-                                Saiba mais sobre como usar o Modo visitante
-                            </Text>
-                        </Pressable>
-                    </ThemedView>
+                <TextInput
+                style={styles.input}
+                placeholder="Digite sua senha"
+                secureTextEntry={!isSelected}  // Altera a visibilidade da senha
+                value={password}
+                onChangeText={setPassword}
+            />
+                <CheckBox
+                    title="Mostrar senha"
+                    checked={isSelected}
+                    onPress={() => setSelected(!isSelected)}  // Alterna o estado do checkbox
+                />
                     <ThemedView style={styles.actionsContainer}>
                         <Pressable>
                             <Text style={styles.linkText}>
-                                Criar conta
+                                Esqueceu a senha?
                             </Text>
                         </Pressable>
                         <Pressable style={styles.btn}
-                        onPress={() => {navigation.navigate('senha')}}>
+                        onPress={() => {navigation.navigate('index')}}>
                             <Text style={styles.btnText}>
                                 Próxima
                             </Text>
@@ -92,7 +84,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         width: "70%",
-        height: "65%",
+        height: "auto",
         backgroundColor: "white",
         borderRadius: 32,
         justifyContent: "space-between",
@@ -121,10 +113,10 @@ const styles = StyleSheet.create({
 
     input: {
         width: 400,
-        height: 60,
-        marginTop: 70,
+        height: 50,
         marginRight: 20,
         padding: 15,
+        marginTop: "25%",
         fontSize: 20,
         borderWidth: 1,
         borderColor: "gray",
@@ -158,6 +150,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         justifyContent: "flex-end",
         alignItems: 'center',
+        paddingTop: '15%',
     },
 
     btn: {
